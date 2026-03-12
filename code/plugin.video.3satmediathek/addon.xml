@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.3satmediathek" name="3sat Mediathek" version="1.3.8" provider-name="68000a">
+<addon id="plugin.video.3satmediathek.matrix" name="3sat Mediathek" version="1.3.8" provider-name="68000a">
     <requires>
-        <import addon="xbmc.python" version="2.25.0"/>
-        <import addon="script.module.lib3sat" version="1.2.10" provider-name="68000a"/>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.lib3sat.matrix" version="1.2.10" provider-name="68000a"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>

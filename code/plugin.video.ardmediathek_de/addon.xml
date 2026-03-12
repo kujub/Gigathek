@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.ardmediathek_de" name="ARD Mediathek" version="5.1.7" provider-name="68000a">
+<addon id="plugin.video.ardmediathek_de.matrix" name="ARD Mediathek" version="5.1.7" provider-name="kujub,68000a">
     <requires>
-        <import addon="xbmc.python" version="2.25.0"/>
-        <import addon="script.module.libard" version="5.1.42" provider-name="68000a"/>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.libard.matrix" version="5.1.42" provider-name="kujub,68000a"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -11,7 +11,7 @@
         <platform>all</platform>
         <language>de</language>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <source>https://github.com/68000a/Gigathek/tree/master/code/plugin.video.ardmediathek_de</source>
+        <source>https://github.com/kujub/Gigathek/tree/kujub/code/plugin.video.ardmediathek_de</source>
         <summary lang="en">Watch videos on demand from the ARD Mediathek.</summary>
         <description lang="en">Watch videos on demand from the ARD Mediathek.</description>
         <summary lang="de">Videos aus der Mediathek des ARD.</summary>

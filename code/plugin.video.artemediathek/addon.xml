@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.artemediathek" name="Arte Mediathek" version="1.0.13" provider-name="68000a">
+<addon id="plugin.video.artemediathek.matrix" name="Arte Mediathek" version="1.0.13" provider-name="kujub,68000a">
     <requires>
-        <import addon="xbmc.python" version="2.25.0"/>
-        <import addon="script.module.libarte" version="1.0.30" provider-name="68000a"/>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.libarte.matrix" version="1.0.30" provider-name="kujub,68000a"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -15,5 +15,6 @@
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
         </assets>
+        <source>https://github.com/kujub/Gigathek/tree/kujub/code/plugin.video.artemediathek</source>
     </extension>
 </addon>
