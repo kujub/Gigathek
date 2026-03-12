@@ -32,10 +32,10 @@ import re
 compress_addons = True
 
 # some global variables
-my_provider_name = '68000a'
-code_root = 'C:\Daten\Kodi\Gigathek\code'
-repo_root = 'C:\Daten\Kodi\Gigathek'
-repo_matrix = 'C:\Daten\Kodi\GigathekMatrix'
+my_provider_names = ['kujub,68000a', '68000a']
+code_root = os.path.expanduser('~') + '/github/Gigathek/code'
+repo_root = os.path.expanduser('~') + '/github/Gigathek'
+repo_matrix = os.path.expanduser('~') + '/github/GigathekMatrix'
 matrix_extension = '.matrix'
 ########## End SETTINGS
 
@@ -65,18 +65,19 @@ def is_addon_dir( addon ):
 	return False
 
 def adjust_for_matrix( line ):
-	if line.find('<addon') >= 0 and line.find('" provider-name="' + my_provider_name + '"') >= 0:
-		if line.find('<addon id="Gigathek"') < 0:
-			# add matrix_extension to Addon-ID
-			line = line.replace('" name="', matrix_extension + '" name="')
-	elif line.find('<import addon="xbmc.python" version="2.25.0"') >= 0:
-		# replace Python version
-		line = line.replace('<import addon="xbmc.python" version="2.25.0"', '<import addon="xbmc.python" version="3.0.0"')
-	elif line.find('<import addon="script.module.futures"') >= 0:
-		line = ''
-	elif line.find('<import') >= 0 and line.find('" provider-name="' + my_provider_name + '"') >= 0:
-		# add matrix_extension to dependency Addon-ID
-		line = line.replace('" version="', matrix_extension + '" version="')
+	for p in my_provider_names:
+		if line.find('<addon') >= 0 and line.find('" provider-name="' + p + '"') >= 0:
+			if line.find('<addon id="Gigathek"') < 0:
+				# add matrix_extension to Addon-ID
+				line = line.replace('" name="', matrix_extension + '" name="')
+		elif line.find('<import addon="xbmc.python" version="2.25.0"') >= 0:
+			# replace Python version
+			line = line.replace('<import addon="xbmc.python" version="2.25.0"', '<import addon="xbmc.python" version="3.0.0"')
+		elif line.find('<import addon="script.module.futures"') >= 0:
+			line = ''
+		elif line.find('<import') >= 0 and line.find('" provider-name="' + p + '"') >= 0:
+			# add matrix_extension to dependency Addon-ID
+			line = line.replace('" version="', matrix_extension + '" version="')
 	return line
 
 class Generator:
@@ -113,7 +114,7 @@ class Generator:
 
 						# create path
 						_path = os.path.join( addon, "addon.xml" )
-
+						print _path                                      # kujub #
 						if os.path.exists(_path): found_an_addon = True
 
 						# split lines for stripping
